@@ -1,5 +1,17 @@
 ﻿//Урок1
 
+задача 2:
+Console.WriteLine("вводим первое число");
+    int firstNomber = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Ввести второе число");
+    int firstNomber = Convert.ToInt32(Console.ReadLine);
+    if (первое число > второе число)
+    Console.WriteLine(firstNomber + " > " + secondNumder);
+    else if (второе число >пкрвое число)
+    Console.WriteLine(secondNumder + " > " + firstNomber);
+    Console.WriteLine (secondNumder + " = " + firstNomber);
+
+
 //задача 4
 /*Console.WriteLine("Вводим первое число");
     int num1 = Convert.ToInt32(Console.ReadLine());
@@ -15,10 +27,29 @@
         Console.WriteLine(max);
 */
 
+Задача 6
+Console.WriteLine("Вводим число");
+int num = Convert.ToInt32(Console.ReadLine());
+if (num % 2 == 0)
+Console.WriteLine(number + " - Четное число ");
+else
+Console.WriteLine (number + " - Нечетное число");
+
+
+Задача 8
+Console.WriteLine(вводим число);
+int num = Convert.ToInt32(Console.ReadLine);
+int startNumber = 1;
+
+else if (startNumber % 2 == 0)
+Console. (startNumber + ", ");
+startNumber ++;
+
+
 //Урок2
 
 //Задача 10
-Console.WriteLine("Вводим трехзначное число");
+/*Console.WriteLine("Вводим трехзначное число");
     String num = Console.ReadLine();
     Char secondNum = num[1];
     Console.WriteLine("второе число = " + secondNum);
@@ -40,4 +71,14 @@ Console.WriteLine("Вводим день недели");
         if (dayOfWeek > 7 || dayOfWeek < 1) resultDay = "Неверный день недели";
         else if(dayOfWeek > 5) resultDay = "Выходной день";
         Console.WriteLine(resultDay); 
+*/
 
+
+Урок3
+Задача 19
+Console.WriteLine("Введите чмсло");
+Console = number Length.ReadLine;
+number = len int.Length
+
+if (len == 5)   
+    else 
