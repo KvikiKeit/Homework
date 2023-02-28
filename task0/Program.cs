@@ -71,7 +71,7 @@ Console.WriteLine("Вводим день недели");
 
 //Урок3
 //Задача 19
-Console.Clear();
+/*Console.Clear();
 Console.WriteLine("Введите число : ");
 int num = int.Parse(Console.ReadLine());
 int a1 = num / 10000;
@@ -164,4 +164,52 @@ while(x <= N)
     int y = x*x*x;
     Console.WriteLine(y);
     x++
+} */
+
+Урок 4. Функции
+/*Задача 25: Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B.
+3, 5 -> 243 (3⁵)
+2, 4 -> 16
+
+int Prompt(String message)
+{
+    System.Console.Write(message);
+    String readInput = System.Console.ReadLine();
+    int result = int. Parse(readInput);
+    return result;
 }
+int numberA = ReadInt("Введите число A: ");
+int numberB = ReadInt("Введите число B: ");
+ToDegree(numberA, numberB);
+// Функция возведения в степень
+void ToDegree(int a, int b)
+{
+    int result = 1;
+    for (int i = 1; i <= b; i++)
+    {
+        result = result * a;
+    }
+    Console.WriteLine(result);
+}
+*/
+
+/*Задача 27:
+int Prompt(String message)
+{
+    System.Console.Write(message);
+    String readInput = System.Console.ReadLine();
+    int result = int. Parse(readInput);
+    return result;
+}
+String num = ReadInt("Введите число");
+CalculateSum(num);
+{
+    int num1 = num[2].ToInt32
+    int num2 = num[1].ToInt32
+    int num3 = num[0].ToInt32
+    int result = num1 + num2 + num3
+    Console.WriteLine(result);
+}*/
+
+Задача 29:
+//не получилось
