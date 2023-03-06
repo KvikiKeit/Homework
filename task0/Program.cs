@@ -166,7 +166,7 @@ while(x <= N)
     x++
 } */
 
-Урок 4. Функции
+//Урок 4. Функции
 /*Задача 25: Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B.
 3, 5 -> 243 (3⁵)
 2, 4 -> 16
@@ -211,111 +211,207 @@ CalculateSum(num);
     Console.WriteLine(result);
 }*/
 
-Задача 29:
+//Задача 29:
 //не получилось
 
-Задача 34
+//Задача 34
 
-Console.WriteLine("Введите длину массива");
-int size = Convert.ToInt32(Console.ReadLine());
-int[] numbers = new int[size];
-RandonNumbers(numbers);
-Console.WriteLine("В этом массиве");
-PrintArray(numbers);
+//Console.WriteLine("Введите длину массива");
+//int size = Convert.ToInt32(Console.ReadLine());
+//int[] numbers = new int[size];
+//RandonNumbers(numbers);
+//Console.WriteLine("В этом массиве");
+//PrintArray(numbers);
 
-void RandonNumbers(int[] numbers)
-{
-    for(int i = 0; i < size; i++)
-    {
-        numbers[i] = new Random().Next(100,1000);
-    }
-}
-int count = 0;
-for (int x = 0; x < numbers.Length; x++)
-{
-if (numbers[x] % 2 == 0)
-count++;
-}
-Console.WriteLine($"из {numbers.Length} чисел, {count} четных");
-void PrintArray(int[] numbers)
-{
-    Console.Write(" ");
-    for(int i = 0; i < numbers.Length; i++)
-    {
-        Console.Write(numbers[i] + " ");
-    }
-    Console.Write(" ");
-    Console.WriteLine();
-}
+//void RandonNumbers(int[] numbers)
+//{
+//    for(int i = 0; i < size; i++)
+//    {
+//        numbers[i] = new Random().Next(100,1000);
+//    }
+//}
+//int count = 0;
+//for (int x = 0; x < numbers.Length; x++)
+//{
+//if (numbers[x] % 2 == 0)
+//count++;
+//}
+//Console.WriteLine($"из {numbers.Length} чисел, {count} четных");
+//void PrintArray(int[] numbers)
+//{
+//    Console.Write(" ");
+//    for(int i = 0; i < numbers.Length; i++)
+//    {
+//        Console.Write(numbers[i] + " ");
+//    }
+//    Console.Write(" ");
+//    Console.WriteLine();
+//}
 
-Задача 36
+//Задача 36
 
-Console.WriteLine("Введите размер массива");
-int size = Convert.ToInt32(Console.ReadLine());
-int[] numbers = new int[size];
-FillArrayRandomNumbers(numbers);
-Console.WriteLine("массив");
+//Console.WriteLine("Введите размер массива");
+//int size = Convert.ToInt32(Console.ReadLine());
+//int[] numbers = new int[size];
+//FillArrayRandomNumbers(numbers);
+//Console.WriteLine("массив");
+//PrintArray(numbers);
+//int sum = 0; 
+
+//for (int z = 0; z < numbers.Length; z+=2)
+//    sum = sum + numbers[z];
+
+//    Console.WriteLine($"всего {numbers.Length} чисел, сумма элементов cтоящих на нечётных позициях = {sum}");
+
+//void FillArrayRandomNumbers(int[] numbers)
+//{
+//    for(int i = 0; i < numbers.Length; i++)
+//        {
+//            numbers[i] = new Random().Next(1,10);
+//        }
+//}
+//void PrintArray(int[] numbers)
+//{
+//    Console.Write(" ");
+//    for(int i = 0; i < numbers.Length; i++)
+//        {
+//            Console.Write(numbers[i] + " ");
+//        }
+ //   Console.Write(" ");
+//    Console.WriteLine();
+//}
+
+//Задача 38
+
+//Console.WriteLine("Введите размер массива");
+//int size = Convert.ToInt32(Console.ReadLine());
+//double[] numbers = new double[size];
+//FillArrayRandomNumbers(numbers); 
+//Console.WriteLine("массив");
+//PrintArray(numbers);
+//double min = Int32.MaxValue; // минимальное значение 
+//double max = Int32.MinValue; // значение мах
+//for (int х = 0; х < numbers.Length; х++)
+//{
+//    if (numbers[х] > max)
+//        {
+//            max = numbers[х];
+//        }
+//    if (numbers[х] < min)
+//        {
+//            min = numbers[х];
+//        }
+//}
+//void FillArrayRandomNumbers(double[] numbers) // переменная , генератор случайных чисел
+//{
+//    for(int i = 0; i < numbers.Length; i++)
+//        {
+//            numbers[i] = Convert.ToDouble(new Random().Next(100,1000)) / 100;
+//        }
+//}
+//void PrintArray(double[] numbers)
+//{
+//    Console.Write(" ");
+//    for(int i = 0; i < numbers.Length; i++)
+//        {
+//            Console.Write(numbers[i] + " ");
+//        }
+//    Console.Write(" ");
+//    Console.WriteLine;
+//} 
+
+Задача 41
+
+Console.Write("Введите числа через запятую");
+int[] numbers = StringToNum(Console.ReadLine);
+Console.WriteLine($"введите {number} целых чисел:");
 PrintArray(numbers);
 int sum = 0;
-
-for (int z = 0; z < numbers.Length; z+=2)
-    sum = sum + numbers[z];
-
-    Console.WriteLine($"всего {numbers.Length} чисел, сумма элементов cтоящих на нечётных позициях = {sum}");
-
-void FillArrayRandomNumbers(int[] numbers)
+for (int i = 0; i < numbers.Length; i++)
 {
-    for(int i = 0; i < numbers.Length; i++)
-        {
-            numbers[i] = new Random().Next(1,10);
-        }
+    if (numbers[i] > 0)
+    {
+        sum++;
+    }
 }
-void PrintArray(int[] numbers)
+Console.WriteLine;
+Console.WriteLine($"количество значений больше 0 = {sum}");
+int[] StringToNum(string array)
 {
-    Console.Write(" ");
-    for(int i = 0; i < numbers.Length; i++)
+    int count = 1;
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (inputarray[i] == ',')
         {
-            Console.Write(numbers[i] + " ");
+            count++;
         }
-    Console.Write(" ");
-    Console.WriteLine();
+    }
+    int numbers = new int [count];
+    int index = 0;
+    for (int i = 0; i < array.Length; i++)
+    {
+        string temp = " ";
+        while (array [i])
+        {
+        if(i != array.Length - 1)
+        {
+            temp += array [i].ToString;
+            i++;
+        }
+        else
+        {
+            temp += array [i].ToString;
+            break;
+        }
+        }
+        numbers[index] = Convert.ToInt32(temp);
+        index++;
+    }
+    return numbers;
 }
-
-Задача 38
-
-Console.WriteLine("Введите размер массива");
-int size = Convert.ToInt32(Console.ReadLine());
-double[] numbers = new double[size];
-FillArrayRandomNumbers(numbers); 
-Console.WriteLine("массив");
-PrintArray(numbers);
-double min = Int32.MaxValue; // минимальное значение 
-double max = Int32.MinValue; // значение мах
-for (int х = 0; х < numbers.Length; х++)
-{
-    if (numbers[х] > max)
-        {
-            max = numbers[х];
-        }
-    if (numbers[х] < min)
-        {
-            min = numbers[х];
-        }
-}
-void FillArrayRandomNumbers(double[] numbers) // переменная , генератор случайных чисел
-{
-    for(int i = 0; i < numbers.Length; i++)
-        {
-            numbers[i] = Convert.ToDouble(new Random().Next(100,1000)) / 100;
-        }
-}
-void PrintArray(double[] numbers)
+void PrintArray(int array)
 {
     Console.Write(" ");
-    for(int i = 0; i < numbers.Length; i++)
-        {
-            Console.Write(numbers[i] + " ");
-        }
+    for (int i = 0; i < array.Length; i++)
+    {
+        Console.Write(array[i] + " ");
+    }
     Console.Write(" ");
-    Console.WriteLine;
 }
+
+// Задача 43.
+// Напишите программу, которая найдёт точку пересечения двух прямых
+// заданных уравнениями y = k1 * x + b1, y = k2 * x + b2;
+// значения b1, k1, b2 и k2 задаются пользователем.
+// b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; -0,5)
+
+// k1 * x + b1 = k2 * x + b2
+// x(k1 - k2) = b2 - b1
+// x = (b2 - b1) / (k1 - k2)
+
+String GetPointOfIntersection(int k1, int k2, int b1, int b2)
+{
+    string str43 = "Найти точку пересечения двух прямых:";
+    Console.WriteLine(str43); 
+    Console.WriteLine($"y = {k1}*x + {b1}");
+    Console.WriteLine($"y = {k2}*x + {b2}");
+
+    if (k1 - k2 != 0)
+    {
+        float x = (float)(b2 - b1) / (float)(k1 - k2);
+        float y = k1 * x + b1;
+
+        return $"точка пересечения ({x:f1} ; {y:f1})";
+    }
+    else
+    {
+        return "прямые не пересекаются или совпадают";
+    }
+}
+
+int b1 = 2, // y = k1 * x + b1
+    k1 = 5,
+    b2 = 4, // y = k2 * x + b2
+    k2 = 9;
+Console.WriteLine(GetPointOfIntersection(k1, k2, b1, b2));
+
