@@ -564,3 +564,295 @@ int ReadInt(string message)
     Console.Write(message);
     return Convert.ToInt32(Console.ReadLine);
 }
+
+//Задача 54: Задайте двумерный массив. Напишите программу, которая упорядочит по убыванию элементы каждой строки двумерного массива.
+//Например, задан массив:
+//1 4 7 2
+//5 9 2 3
+//8 4 2 4
+//В итоге получается вот такой массив:
+//7 4 2 1
+//9 5 3 2
+//8 4 4 2
+
+Console.WriteLine("введите количество строк");
+int linesVol = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("введите количество столбцов");
+int columnsVol = Convert.ToInt32(Console.ReadLine());
+int[,] numbers = new int[linesVol, columnsVol];
+FillArrayRandomNumbers(numbers);
+Console.WriteLine();
+Console.WriteLine("Массив до изменения");
+PrintArray(numbers);
+
+for (int i = 0; i < numbers.GetLength(0); i++)
+{
+    for (int j = 0; j < numbers.GetLength(1) - 1; j++)
+    {
+        for (int z = 0; z < numbers.GetLength(1) - 1; z++)
+        {
+            if (numbers[i, z] < numbers[i, z + 1]) //для изменения сортировки поменять знак < на противоположный
+            {
+                int temp = 0;
+                temp = numbers[i, z];
+                numbers[i, z] = numbers[i, z + 1];
+                numbers[i, z + 1] = temp;
+            }
+        }
+    }
+}
+Console.WriteLine();
+Console.WriteLine("Массив с упорядоченными значениями");
+PrintArray(numbers);
+
+void FillArrayRandomNumbers(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            array[i, j] = new Random().Next(0, 10);
+        }
+    }
+}
+void PrintArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        Console.Write("[ ");
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write(array[i, j] + " ");
+        }
+        Console.Write("]");
+        Console.WriteLine("");
+    }
+}
+
+// Задача 56: Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку с наименьшей суммой элементов.
+// Например, задан массив:
+// 1 4 7 2
+// 5 9 2 3
+// 8 4 2 4
+// 5 2 6 7
+// Программа считает сумму элементов в каждой строке и выдаёт номер строки с наименьшей суммой элементов: 1 строка
+
+int[,] table = new int[4, 4];
+FillArrayRandom(table);
+PrintArray(table);
+Console.WriteLine();
+NumberRowMinSumElements(table);
+// Функция вывода номера строки (не индекса) с наименьшей суммой элементов 
+void NumberRowMinSumElements(int[,] array)
+{
+    int minRow = 0;
+    int minSumRow = 0;
+    int sumRow = 0;
+    for (int i = 0; i < table.GetLength(1); i++)
+    {
+        minRow += table[0, i];
+    }
+    for (int i = 0; i < table.GetLength(0); i++)
+    {
+        for (int j = 0; j < table.GetLength(1); j++) sumRow += table[i, j];
+        if (sumRow < minRow)
+        {
+            minRow = sumRow;
+            minSumRow = i;
+        }
+        sumRow = 0;
+    }
+    Console.Write($"{minSumRow + 1} строка");
+}
+// Функция вывода двумерного массива
+void PrintArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write($"{array[i, j]} ");
+        }
+        Console.WriteLine();
+    }
+}
+// Функция заполнения массива рандомно числами от 1 до 9
+void FillArrayRandom(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            array[i, j] = new Random().Next(1, 10);
+        }
+    }
+}
+
+//Задача 58: Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
+//Например, даны 2 матрицы:
+//2 4 | 3 4
+//3 2 | 3 3
+//Результирующая матрица будет:
+//18 20
+//15 18
+
+int[,] CreateMatrix1 (int row, int col, int min, int max) 
+{
+    int[,] matrix1 = new int[row, col];
+    Random rnd = new Random();   
+    for (int i = 0; i < matrix1.GetLength(0); i++) 
+    {
+        for (int j = 0; j < matrix1.GetLength(1); j++)
+        {
+            matrix1[i,j] = rnd.Next(min, max +1);
+        }
+    }
+    return matrix1;
+} 
+ 
+int[,] CreateMatrix2 (int row, int col, int min, int max) 
+{
+    int[,] matrix2 = new int[row, col];
+    Random rnd = new Random();   
+    for (int i = 0; i < matrix2.GetLength(0); i++) 
+    {
+        for (int j = 0; j < matrix2.GetLength(1); j++)
+        {
+            matrix2[i,j] = rnd.Next(min, max +1);
+        }
+    }
+    return matrix2;
+} 
+ 
+void PrintMatrix1(int[,] matrix)
+{
+    for (int i = 0; i <  matrix.GetLength(0); i++)
+    {
+        Console.Write("|");
+        for (int j = 0; j < matrix.GetLength(1); j++) 
+        {
+            if (j < matrix.GetLength(1) -1) Console.Write($"{matrix[i, j], 1}|");
+            else Console.Write($"{matrix[i, j], 1}");
+        }
+        Console.WriteLine("|");        
+    }        
+}
+ 
+void PrintMatrix2(int[,] matrix)
+{
+    for (int i = 0; i <  matrix.GetLength(0); i++)
+    {
+        Console.Write("|");
+        for (int j = 0; j < matrix.GetLength(1); j++) 
+        {
+            if (j < matrix.GetLength(1) -1) Console.Write($"{matrix[i, j], 1}|");
+            else Console.Write($"{matrix[i, j], 1}");
+        }
+        Console.WriteLine("|");        
+    }        
+}
+ 
+void DivMatrix(int[,] matrix1, int[,] matrix2)
+{
+    int aRows = matrix1.Length[0]; int aCols = matrix1[1].Length;
+    int bRows = matrix2.Length[0]; int bCols = matrix2[1].Length;
+    if (aCols != bRows)    
+    double[][] result = MatrixCreate(aRows, bCols);
+    for (int i = 0; i < aRows; i++) 
+        for (int j = 0; j < bCols; j++) 
+        for (int k = 0; k < aCols; k++)
+        result[i][j] += matrix1[i][k] * matrix2[k][j];
+    return result;
+}
+ 
+int[,] array2D = CreateMatrix1(2, 2, 0, 9);
+int[,] matrix = CreateMatrix2(2, 2, 0, 9);
+PrintMatrix1(array2D);
+Console.WriteLine();
+PrintMatrix2(array2D);
+DivMatrix();
+
+//Дополнительные задачи:
+//Задача 60. * ...Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. Напишите программу, которая будет построчно выводить массив, добавляя индексы каждого элемента.
+//Массив размером 2 x 2 x 2
+//66(0,0,0) 25(0,1,0)
+//34(1,0,0) 41(1,1,0)
+//27(0,0,1) 90(0,1,1)
+//26(1,0,1) 55(1,1,1)
+
+int[,,] array3D = new int[2, 2, 2];
+FillArray(array3D);
+PrintIndex(array3D);
+// Функция вывода индекса элементов 3D массива
+void PrintIndex(int[,] arr)
+{
+    for (int i = 0; i < array3D.GetLength(0); i++)
+    {
+        for (int j = 0; j < array3D.GetLength(1); j++)
+        {
+            Console.WriteLine();
+            for (int k = 0; k < array3D.GetLength(2); k++)
+            {
+                Console.Write($"{array3D[i, j, k]}({i},{j},{k})");
+            }
+        }
+    }
+}
+// Функция заполнения 3D массива не повторяющимеся числами
+void FillArray(int[,] arr)
+{
+    int count = 10;
+    for (int i = 0; i < arr.GetLength(0); i++)
+    {
+        for (int j = 0; j < arr.GetLength(1); j++)
+        {
+            for (int k = 0; k < arr.GetLength(2); k++)
+            {
+                arr[k, i, j] += count;
+                count += 3;
+            }
+        }
+    }
+}
+
+//Задача 62 *. Напишите программу, которая заполнит спирально массив 4 на 4. 
+//Например, на выходе получается вот такой массив:
+//01 02 03 04
+//12 13 14 05
+//11 16 15 06
+//10 09 08 07
+
+Console.WriteLine("Введите размер массива");
+int size = Convert.ToInt32(Console.ReadLine());
+int[,] nums = new int[size];
+int num = 1;
+int i = 0;
+int j = 0;
+
+while (num <= size * size)
+{
+    nums[i, j] = num;
+    if (i <= j + 1 && i + j < size - 1)
+        ++j;
+    else if (i < j && i + j >= size - 1)
+        ++i;
+    else if (i >= j && i + j > size - 1)
+        --j;
+    else
+        --i;
+    ++num;
+}
+PrintArray(nums);
+void PrintArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        Console.Write(" ");
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write(array[i, j] + " ");
+        }
+        Console.Write(" ");
+        Console.WriteLine(" ");
+    }
+}
